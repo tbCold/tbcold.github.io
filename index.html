@@ -221,6 +221,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/26/hexo博客搭建/" class="article-date">
+      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/26/hexo博客搭建/">hexo博客搭建</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. npm install -g hexo</span><br><span class="line">2. hexo init</span><br><span class="line">3. npm install</span><br></pre></td></tr></table></figure>
+<h3 id="安装spfk主题"><a href="#安装spfk主题" class="headerlink" title="安装spfk主题"></a>安装spfk主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br><span class="line">2. 修改_config.yml文件，theme: spfk</span><br><span class="line">3. cd themes/spfk</span><br><span class="line">4. git pull</span><br></pre></td></tr></table></figure>
+<h3 id="增加部署配置"><a href="#增加部署配置" class="headerlink" title="增加部署配置"></a>增加部署配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 添加git插件：</span><br><span class="line">npm install hexo-deployer-git</span><br><span class="line">2. 修改_config.yml文件，在文件最下修改：</span><br><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repository: https://github.com/tbCold/tbcold/.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. hexo generate</span><br><span class="line">2. hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><p><a href="https://tbcold.github.io">https://tbcold.github.io</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-博客/">hexo 博客</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -250,13 +313,8 @@
           
         <h1 id="hexo介绍"><a href="#hexo介绍" class="headerlink" title="hexo介绍"></a>hexo介绍</h1><p><a href="https://hexo.io" target="_blank" rel="noopener">hexo官方网站</a></p>
 <p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo中文文档</a></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code>1. public: 部署目录
-2. scaffolds: 模版目录
-3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。
-4. themes: 存放主题的目录
-5. _config.yml: 项目配置文件
-</code></pre><h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><pre><code>hexo new [layout] &lt;title&gt;
-</code></pre>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. public: 部署目录</span><br><span class="line">2. scaffolds: 模版目录</span><br><span class="line">3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。</span><br><span class="line">4. themes: 存放主题的目录</span><br><span class="line">5. _config.yml: 项目配置文件</span><br></pre></td></tr></table></figure>
+<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
       
       
     </div>
@@ -268,81 +326,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/26/hexo博客搭建/" class="article-date">
-      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/hexo博客搭建/">hexo博客搭建</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="hexo博客搭建"><a href="#hexo博客搭建" class="headerlink" title="hexo博客搭建"></a>hexo博客搭建</h1><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><pre><code>1. npm install -g hexo
-2. hexo init
-3. npm install
-</code></pre><h3 id="安装spfk主题"><a href="#安装spfk主题" class="headerlink" title="安装spfk主题"></a>安装spfk主题</h3><pre><code>1. git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk
-2. 修改_config.yml文件，theme: spfk
-3. cd themes/spfk
-4. git pull
-</code></pre><h3 id="增加部署配置"><a href="#增加部署配置" class="headerlink" title="增加部署配置"></a>增加部署配置</h3><pre><code>1. 添加git插件：
-npm install hexo-deployer-git
-2. 修改_config.yml文件，在文件最下修改：
-deploy:
-    type: git
-    repository: https://github.com/tbCold/tbcold/.github.io.git
-    branch: master
-</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><pre><code>1. hexo generate
-2. hexo deploy
-</code></pre><h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><p><a href="https://tbcold.github.io">https://tbcold.github.io</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-博客/">hexo 博客</a></li></ul>
     </div>
 
       
