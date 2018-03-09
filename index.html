@@ -371,72 +371,8 @@ p.then(......)
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ES6简介"><a href="#ES6简介" class="headerlink" title="ES6简介"></a>ES6简介</h2><p><strong>ECMAScript 6</strong> 简称 ES6，是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<p><strong>Babel：</strong>将ES6代码转为ES5代码<a href="http://babeljs.io/" target="_blank" rel="noopener">http://babeljs.io/</a></p>
-<h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><h3 id="let、const"><a href="#let、const" class="headerlink" title="let、const"></a>let、const</h3><p><strong>let 定义的变量不会被变量提升，const 定义的常量不能被修改，let 和 const 都是块级作用域</strong></p>
-<p>ES6前，js 是没有块级作用域 {} 的概念的。（有函数作用域、全局作用域、<code>eval</code>作用域）</p>
-<p>ES6后，<code>let</code> 和 <code>const</code> 的出现，js 也有了块级作用域的概念，前端的知识是日新月异的~</p>
-<p>变量提升：在ES6以前，<code>var</code>关键字声明变量。无论声明在何处，都会被视为声明在函数的最顶部；不在函数内即在全局作用域的最顶部。这样就会引起一些误解。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(a); // undefined</span><br><span class="line">var a = &apos;hello&apos;;</span><br><span class="line"> </span><br><span class="line"># 上面的代码相当于</span><br><span class="line">var a;</span><br><span class="line">console.log(a);</span><br><span class="line">a = &apos;hello&apos;;</span><br><span class="line"> </span><br><span class="line"># 而 let 就不会被变量提升</span><br><span class="line">console.log(a); // a is not defined</span><br><span class="line">let a = &apos;hello&apos;;</span><br></pre></td></tr></table></figure>
-<p>const 定义的常量不能被修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;bai&quot;;</span><br><span class="line">name = &quot;ming&quot;;</span><br><span class="line">console.log(name); // ming</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">const name = &quot;bai&quot;;</span><br><span class="line">name = &quot;ming&quot;; // Assignment to constant variable.</span><br><span class="line">console.log(name);</span><br></pre></td></tr></table></figure>
-<h3 id="import、export"><a href="#import、export" class="headerlink" title="import、export"></a>import、export</h3><p><strong>import导入模块、export导出模块</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 全部导入</span><br><span class="line">import people from &apos;./example&apos;</span><br><span class="line"> </span><br><span class="line">// 将整个模块当作单一对象进行导入，该模块的所有导出都会作为对象的属性存在</span><br><span class="line">import * as example from &quot;./example.js&quot;</span><br><span class="line">console.log(example.name)</span><br><span class="line">console.log(example.getName())</span><br><span class="line"> </span><br><span class="line">// 导入部分，引入非 default 时，使用花括号</span><br><span class="line">import &#123;name, age&#125; from &apos;./example&apos;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">// 导出默认, 有且只有一个默认</span><br><span class="line">export default App</span><br><span class="line"> </span><br><span class="line">// 部分导出</span><br><span class="line">export class App extend Component &#123;&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="class、extends、super"><a href="#class、extends、super" class="headerlink" title="class、extends、super"></a>class、extends、super</h3><p>ES5中最令人头疼的的几个部分：原型、构造函数，继承，有了ES6我们不再烦恼！</p>
-<p>ES6引入了Class（类）这个概念。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">	constructor() &#123;</span><br><span class="line">		this.type = &apos;animal&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	says(say) &#123;</span><br><span class="line">		console.log(this.type + &apos; says &apos; + say);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">let animal = new Animal();</span><br><span class="line">animal.says(&apos;hello&apos;); //animal says hello</span><br><span class="line"> </span><br><span class="line">class Cat extends Animal &#123;</span><br><span class="line">	constructor() &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.type = &apos;cat&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">let cat = new Cat();</span><br><span class="line">cat.says(&apos;hello&apos;); //cat says hello</span><br></pre></td></tr></table></figure>
-<p>上面代码首先用<code>class</code>定义了一个“类”，可以看到里面有一个<code>constructor</code>方法，这就是构造方法，而<code>this</code>关键字则代表实例对象。简单地说，<code>constructor</code>内定义的方法和属性是实例对象自己的，而<code>constructor</code>外定义的方法和属性则是所有实力对象可以共享的。</p>
-<p>Class之间可以通过<code>extends</code>关键字实现继承，这比ES5的通过修改原型链实现继承，要清晰和方便很多。上面定义了一个Cat类，该类通过<code>extends</code>关键字，继承了Animal类的所有属性和方法。</p>
-<p><code>super</code>关键字，它指代父类的实例（即父类的<code>this</code>对象）。子类必须在<code>constructor</code>方法中调用<code>super</code>方法，否则新建实例时会报错。这是因为子类没有自己的<code>this</code>对象，而是继承父类的<code>this</code>对象，然后对其进行加工。如果不调用<code>super</code>方法，子类就得不到<code>this</code>对象。</p>
-<p>ES6的继承机制，实质是先创造父类的实例对象<code>this</code>（所以必须先调用<code>super</code>方法），然后再用子类的构造函数修改<code>this</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">var Shape = function(id, x, y) &#123;</span><br><span class="line">	this.id = id;</span><br><span class="line">	this.move(x, y);</span><br><span class="line">&#125;;</span><br><span class="line">Shape.prototype.move = function(x, y) &#123;</span><br><span class="line">	this.x = x;</span><br><span class="line">	this.y = y;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">var Rectangle = function id(id, x, y, width, height) &#123;</span><br><span class="line">	Shape.call(this, id, x, y);</span><br><span class="line">	this.width = width;</span><br><span class="line">	this.height = height;</span><br><span class="line">&#125;;</span><br><span class="line">Rectangle.prototype = Object.create(Shape.prototype);</span><br><span class="line">Rectangle.prototype.constructor = Rectangle;</span><br><span class="line"> </span><br><span class="line">var Circle = function(id, x, y, radius) &#123;</span><br><span class="line">	Shape.call(this, id, x, y);</span><br><span class="line">	this.radius = radius;</span><br><span class="line">&#125;;</span><br><span class="line">Circle.prototype = Object.create(Shape.prototype);</span><br><span class="line">Circle.prototype.constructor = Circle;</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">class Shape &#123;</span><br><span class="line">	constructor(id, x, y) &#123;</span><br><span class="line">		this.id = id;</span><br><span class="line">		this.move(x, y);</span><br><span class="line">	&#125;</span><br><span class="line">	move(x, y) &#123;</span><br><span class="line">		this.x = x;</span><br><span class="line">		this.y = y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Rectangle extends Shape &#123;</span><br><span class="line">	constructor(id, x, y, width, height) &#123;</span><br><span class="line">		super(id, x, y);</span><br><span class="line">		this.width = width;</span><br><span class="line">		this.height = height;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Circle extends Shape &#123;</span><br><span class="line">	constructor(id, x, y, radius) &#123;</span><br><span class="line">		super(id, x, y);</span><br><span class="line">		this.radius = radius;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="arrow-functions-（箭头函数）"><a href="#arrow-functions-（箭头函数）" class="headerlink" title="arrow functions （箭头函数）"></a>arrow functions （箭头函数）</h3><p>函数的快捷写法。不需要 function 关键字来创建函数，省略 return 关键字，继承当前上下文的 this 关键字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">var arr1 = [1, 2, 3];</span><br><span class="line">var newArr1 = arr1.map(function(x) &#123;</span><br><span class="line">	return x + 1;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">let arr2 = [1, 2, 3];</span><br><span class="line">let newArr2 = arr2.map((x) =&gt; &#123;</span><br><span class="line">	x + 1</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>箭头函数小细节：当你的函数有且仅有一个参数的时候，是可以省略掉括号的；当你函数中有且仅有一个表达式的时候可以省略{}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr2 = [1, 2, 3];</span><br><span class="line">let newArr2 = arr2.map(x =&gt; x + 1);</span><br></pre></td></tr></table></figure>
-<p>JavaScript语言的<code>this</code>对象一直是一个令人头痛的问题，运行上面的代码会报错，这是因为<code>setTimeout</code>中的<code>this</code>指向的是全局对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">	constructor() &#123;</span><br><span class="line">		this.type = &apos;animal&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	says(say) &#123;</span><br><span class="line">		setTimeout(function() &#123;</span><br><span class="line">			console.log(this.type + &apos; says &apos; + say);</span><br><span class="line">		&#125;, 1000);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">var animal = new Animal();</span><br><span class="line">animal.says(&apos;hi&apos;); //undefined says hi</span><br></pre></td></tr></table></figure>
-<p>解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 传统方法1: 将this传给self,再用self来指代this</span><br><span class="line">says(say) &#123;</span><br><span class="line">	var self = this;</span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">		console.log(self.type + &apos; says &apos; + say);</span><br><span class="line">	&#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// 传统方法2: 用bind(this),即</span><br><span class="line">says(say) &#123;</span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">		console.log(this.type + &apos; says &apos; + say);</span><br><span class="line">	&#125;.bind(this), 1000);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// ES6: 箭头函数</span><br><span class="line">// 当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象</span><br><span class="line">says(say) &#123;</span><br><span class="line">	setTimeout(() =&gt; &#123;</span><br><span class="line">		console.log(this.type + &apos; says &apos; + say);</span><br><span class="line">	&#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="template-string-（模板字符串）"><a href="#template-string-（模板字符串）" class="headerlink" title="template string （模板字符串）"></a>template string （模板字符串）</h3><p>解决了 ES5 在字符串功能上的痛点。</p>
-<p>第一个用途：字符串拼接。将表达式嵌入字符串中进行拼接，用 ` 和${}`来界定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// es5</span><br><span class="line">var name1 = &quot;bai&quot;;</span><br><span class="line">console.log(&apos;hello&apos; + name1);</span><br><span class="line"> </span><br><span class="line">// es6</span><br><span class="line">const name2 = &quot;ming&quot;;</span><br><span class="line">console.log(`hello$&#123;name2&#125;`);</span><br></pre></td></tr></table></figure>
-<p>第二个用途：在ES5时我们通过反斜杠来做多行字符串拼接。ES6反引号 `` 直接搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// es5</span><br><span class="line">var msg = &quot;Hi \</span><br><span class="line">man!&quot;;</span><br><span class="line"> </span><br><span class="line">// es6</span><br><span class="line">const template = `&lt;div&gt;</span><br><span class="line">&lt;span&gt;hello world&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;`;</span><br></pre></td></tr></table></figure>
-<p>另外：includes repeat</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// includes：判断是否包含然后直接返回布尔值</span><br><span class="line">let str = &apos;hahah&apos;;</span><br><span class="line">console.log(str.includes(&apos;y&apos;)); // false</span><br><span class="line"> </span><br><span class="line">// repeat: 获取字符串重复n次</span><br><span class="line">let s = &apos;he&apos;;</span><br><span class="line">console.log(s.repeat(3)); // &apos;hehehe&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="destructuring-（解构）"><a href="#destructuring-（解构）" class="headerlink" title="destructuring （解构）"></a>destructuring （解构）</h3><p>简化数组和对象中信息的提取。</p>
-<p>ES6前，我们一个一个获取对象信息；</p>
-<p>ES6后，解构能让我们从对象或者数组里取出数据存为变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">var people1 = &#123;</span><br><span class="line">	name: &apos;bai&apos;,</span><br><span class="line">	age: 20,</span><br><span class="line">	color: [&apos;red&apos;, &apos;blue&apos;]</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">var myName = people1.name;</span><br><span class="line">var myAge = people1.age;</span><br><span class="line">var myColor = people1.color[0];</span><br><span class="line">console.log(myName + &apos;----&apos; + myAge + &apos;----&apos; + myColor);</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">let people2 = &#123;</span><br><span class="line">	name: &apos;ming&apos;,</span><br><span class="line">	age: 20,</span><br><span class="line">	color: [&apos;red&apos;, &apos;blue&apos;]</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">let &#123; name, age &#125; = people2;</span><br><span class="line">let [first, second] = people2.color;</span><br><span class="line">console.log(`$&#123;name&#125;----$&#123;age&#125;----$&#123;first&#125;`);</span><br></pre></td></tr></table></figure>
-<h3 id="default-函数默认参数"><a href="#default-函数默认参数" class="headerlink" title="default 函数默认参数"></a>default 函数默认参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// ES5 给函数定义参数默认值</span><br><span class="line">function foo(num) &#123;</span><br><span class="line">	num = num || 200;</span><br><span class="line">	return num;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">function foo(num = 200) &#123;</span><br><span class="line">	return num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="rest-arguments-（rest参数）"><a href="#rest-arguments-（rest参数）" class="headerlink" title="rest arguments （rest参数）"></a>rest arguments （rest参数）</h3><p>解决了 es5 复杂的 arguments 问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo(x, y, ...rest) &#123;</span><br><span class="line">	return ((x + y) * rest.length);</span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, &apos;hello&apos;, true, 7); // 9</span><br></pre></td></tr></table></figure>
-<h3 id="Spread-Operator-（展开运算符）"><a href="#Spread-Operator-（展开运算符）" class="headerlink" title="Spread Operator （展开运算符）"></a>Spread Operator （展开运算符）</h3><p>第一个用途：组装数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let color = [&apos;red&apos;, &apos;yellow&apos;];</span><br><span class="line">let colorful = [...color, &apos;green&apos;, &apos;blue&apos;];</span><br><span class="line">console.log(colorful); // [&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;]</span><br></pre></td></tr></table></figure>
-<p>第二个用途：获取数组除了某几项的其他项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let num = [1, 3, 5, 7, 9];</span><br><span class="line">let [first, second, ...rest] = num;</span><br><span class="line">console.log(rest); // [5, 7, 9]</span><br></pre></td></tr></table></figure>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>对象初始化简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">function people(name, age) &#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		name: name,</span><br><span class="line">		age: age</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">function people(name, age) &#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		name,</span><br><span class="line">		age</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对象字面量简写（省略冒号与 function 关键字）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">var people1 = &#123;</span><br><span class="line">	name: &apos;bai&apos;,</span><br><span class="line">	getName: function () &#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">// ES6</span><br><span class="line">let people2 = &#123;</span><br><span class="line">	name: &apos;bai&apos;,</span><br><span class="line">	getName () &#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>另外：<code>Object.assign()</code></p>
-<p>ES6 对象提供了<code>Object.assign()</code>这个方法来实现浅复制。<code>Object.assign()</code>可以把任意多个源对象自身可枚举的属性拷贝给目标对象，然后返回目标对象。第一参数即为目标对象。在实际项目中，我们为了不改变源对象。一般会把目标对象传为<code>{}</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const obj = Object.assign(&#123;&#125;, objA, objB)</span><br><span class="line"> </span><br><span class="line">// 给对象添加属性</span><br><span class="line">this.seller = Object.assign(&#123;&#125;, this.seller, response.data)</span><br></pre></td></tr></table></figure>
-<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>用同步的方式去写异步代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 发起异步请求</span><br><span class="line">fetch(&apos;/api/todos&apos;)</span><br><span class="line">.then(res =&gt; res.json())</span><br><span class="line">.then(data =&gt; (&#123;</span><br><span class="line">	data</span><br><span class="line">&#125;))</span><br><span class="line">.catch(err =&gt; (&#123;</span><br><span class="line">	err</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
-<h3 id="Generators"><a href="#Generators" class="headerlink" title="Generators"></a>Generators</h3><p>生成器<code>generator</code>是能返回一个迭代器的函数。</p>
-<p>生成器函数也是一种函数，最直观的表现就是比普通的<code>function</code>多了个星号*，在其函数体内可以使用yield关键字,有意思的是函数会在每个<code>yield</code>后暂停。</p>
-<p>这里生活中有一个比较形象的例子。咱们到银行办理业务时候都得向大厅的机器取一张排队号。你拿到你的排队号，机器并不会自动为你再出下一张票。也就是说取票机“暂停”住了，直到下一个人再次唤起才会继续吐票。</p>
-<p>迭代器：当你调用一个<code>generator</code>时，它将返回一个迭代器对象。这个迭代器对象拥有一个叫做next的方法来帮助你重启<code>generator</code>函数并得到下一个值。<code>next</code>方法不仅返回值，它返回的对象具有两个属性：<code>done</code>和<code>value</code>。<code>value</code>是你获得的值，<code>done</code>用来表明你的<code>generator</code>是否已经停止提供值。继续用刚刚取票的例子，每张排队号就是这里的<code>value</code>，打印票的纸是否用完就这是这里的<code>done</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 生成器</span><br><span class="line">function *createIterator() &#123;</span><br><span class="line">	yield 1;</span><br><span class="line">	yield 2;</span><br><span class="line">	yield 3;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// 生成器能像正规函数那样被调用，但会返回一个迭代器</span><br><span class="line">let iterator = createIterator();</span><br><span class="line"> </span><br><span class="line">console.log(iterator.next().value); // 1</span><br><span class="line">console.log(iterator.next().value); // 2</span><br><span class="line">console.log(iterator.next().value); // 3</span><br></pre></td></tr></table></figure>
-<p>迭代器对异步编程作用很大，异步调用对于我们来说是很困难的事，我们的函数并不会等待异步调用完再执行，你可能会想到用回调函数，（当然还有其他方案比如<code>Promise</code>比如<code>Async/await</code>）。</p>
-<p>生成器可以让我们的代码进行等待。就不用嵌套的回调函数。使用<code>generator</code>可以确保当异步调用在我们的<code>generator</code>函数运行一下行代码之前完成时暂停函数的执行。</p>
-<p>那么问题来了，咱们也不能手动一直调用<code>next()</code>方法，你需要一个能够调用生成器并启动迭代器的方法。就像这样子的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function run(taskDef) &#123;</span><br><span class="line">	// taskDef 即一个生成器函数</span><br><span class="line">	// 创建迭代器，让它在别处可用</span><br><span class="line">	let task = taskDef();</span><br><span class="line"> </span><br><span class="line">	// 启动任务</span><br><span class="line">	let result = task.next();</span><br><span class="line"> </span><br><span class="line">	// 递归使用函数来保持对 next() 的调用</span><br><span class="line">	function step() &#123;</span><br><span class="line">		// 如果还有更多要做的</span><br><span class="line">		if (!result.done) &#123;</span><br><span class="line">			result = task.next();</span><br><span class="line">			step();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	// 开始处理过程</span><br><span class="line">	step();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是 ES6 最常用的一些语法，可以说这20%的语法，在ES6的日常使用中占了80%</p>
-<p>本文摘自<a href="https://www.cnblogs.com/burningmyself/p/7451393.html" target="_blank" rel="noopener">JavaScript ES6 规范</a>，链接：<a href="https://www.cnblogs.com/burningmyself/p/7451393.html" target="_blank" rel="noopener">https://www.cnblogs.com/burningmyself/p/7451393.html</a></p>
-
+              ES6是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+          
       
       
     </div>
@@ -450,6 +386,10 @@ p.then(......)
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web规范/">web规范</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2018/03/09/ES6简介/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -646,67 +586,6 @@ p.then(......)
 
 
   
-    <article id="post-hexo介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/26/hexo介绍/" class="article-date">
-      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/hexo介绍/">hexo介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://hexo.io" target="_blank" rel="noopener">hexo官方网站</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo中文文档</a></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. public: 部署目录</span><br><span class="line">2. scaffolds: 模版目录</span><br><span class="line">3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。</span><br><span class="line">4. themes: 存放主题的目录</span><br><span class="line">5. _config.yml: 项目配置文件</span><br></pre></td></tr></table></figure>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -751,6 +630,67 @@ p.then(......)
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hexo介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/26/hexo介绍/" class="article-date">
+      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/26/hexo介绍/">hexo介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://hexo.io" target="_blank" rel="noopener">hexo官方网站</a></p>
+<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo中文文档</a></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. public: 部署目录</span><br><span class="line">2. scaffolds: 模版目录</span><br><span class="line">3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。</span><br><span class="line">4. themes: 存放主题的目录</span><br><span class="line">5. _config.yml: 项目配置文件</span><br></pre></td></tr></table></figure>
+<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
       
