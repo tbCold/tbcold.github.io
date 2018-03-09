@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo介绍 | tbCold</title>
+  <title>什么是MVVM | tbCold</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo官方网站 hexo中文文档 目录结构123451. public: 部署目录2. scaffolds: 模版目录3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。4. themes: 存放主题的目录5. _config.yml: 项">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="前言在介绍MVVM框架之前，先给大家简单介绍一下MVC、MVP框架（由于本博文主要讲解MVVM，所以MVC和MVP将简化介绍，如果需要我将在以后的博文中补充进来）。 MVC框架：  M-Model : 业务逻辑和实体模型 V-View : 布局文件 C-Controller : 控制器  相信大家都熟悉这个框架，这个也是初学者最常用的框架，该框架虽然也是把代码逻辑和UI层分离，但是View层能做的">
+<meta name="keywords" content="MVVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo介绍">
-<meta property="og:url" content="http://tbcold.github.io/2018/02/26/hexo介绍/index.html">
+<meta property="og:title" content="什么是MVVM">
+<meta property="og:url" content="http://tbcold.github.io/2018/03/09/什么是MVVM/index.html">
 <meta property="og:site_name" content="tbCold">
-<meta property="og:description" content="hexo官方网站 hexo中文文档 目录结构123451. public: 部署目录2. scaffolds: 模版目录3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。4. themes: 存放主题的目录5. _config.yml: 项">
-<meta property="og:updated_time" content="2018-02-26T09:42:23.000Z">
+<meta property="og:description" content="前言在介绍MVVM框架之前，先给大家简单介绍一下MVC、MVP框架（由于本博文主要讲解MVVM，所以MVC和MVP将简化介绍，如果需要我将在以后的博文中补充进来）。 MVC框架：  M-Model : 业务逻辑和实体模型 V-View : 布局文件 C-Controller : 控制器  相信大家都熟悉这个框架，这个也是初学者最常用的框架，该框架虽然也是把代码逻辑和UI层分离，但是View层能做的">
+<meta property="og:image" content="http://p2ul1coai.bkt.clouddn.com/mvc.png">
+<meta property="og:image" content="http://p2ul1coai.bkt.clouddn.com/mvp.png">
+<meta property="og:image" content="http://p2ul1coai.bkt.clouddn.com/mvvm.png">
+<meta property="og:updated_time" content="2018-03-09T03:19:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo介绍">
-<meta name="twitter:description" content="hexo官方网站 hexo中文文档 目录结构123451. public: 部署目录2. scaffolds: 模版目录3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。4. themes: 存放主题的目录5. _config.yml: 项">
+<meta name="twitter:title" content="什么是MVVM">
+<meta name="twitter:description" content="前言在介绍MVVM框架之前，先给大家简单介绍一下MVC、MVP框架（由于本博文主要讲解MVVM，所以MVC和MVP将简化介绍，如果需要我将在以后的博文中补充进来）。 MVC框架：  M-Model : 业务逻辑和实体模型 V-View : 布局文件 C-Controller : 控制器  相信大家都熟悉这个框架，这个也是初学者最常用的框架，该框架虽然也是把代码逻辑和UI层分离，但是View层能做的">
+<meta name="twitter:image" content="http://p2ul1coai.bkt.clouddn.com/mvc.png">
   
     <link rel="alternative" href="/atom.xml" title="tbCold" type="application/atom+xml">
   
@@ -221,11 +225,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hexo介绍" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-什么是MVVM" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/02/26/hexo介绍/" class="article-date">
-      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
+      <a href="/2018/03/09/什么是MVVM/" class="article-date">
+      <time datetime="2018-03-09T02:47:42.000Z" itemprop="datePublished">2018-03-09</time>
 </a>
     </div>
   
@@ -238,7 +242,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo介绍
+      什么是MVVM
     </h1>
   
 
@@ -249,7 +253,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -259,10 +263,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://hexo.io" target="_blank" rel="noopener">hexo官方网站</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo中文文档</a></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. public: 部署目录</span><br><span class="line">2. scaffolds: 模版目录</span><br><span class="line">3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。</span><br><span class="line">4. themes: 存放主题的目录</span><br><span class="line">5. _config.yml: 项目配置文件</span><br></pre></td></tr></table></figure>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在介绍MVVM框架之前，先给大家简单介绍一下MVC、MVP框架（由于本博文主要讲解MVVM，所以MVC和MVP将简化介绍，如果需要我将在以后的博文中补充进来）。</p>
+<h3 id="MVC框架："><a href="#MVC框架：" class="headerlink" title="MVC框架："></a>MVC框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvc.png" alt="MVC image"></p>
+<ul>
+<li>M-Model : 业务逻辑和实体模型</li>
+<li>V-View : 布局文件</li>
+<li>C-Controller : 控制器</li>
+</ul>
+<p>相信大家都熟悉这个框架，这个也是初学者最常用的框架，该框架虽然也是把代码逻辑和UI层分离，但是View层能做的事情还是很少的，很多对于页面的呈现还是交由C实现，这样会导致项目中C的代码臃肿，如果项目小，代码臃肿点还是能接受的，但是随着项目的不断迭代，代码量的增加，你就会没办法忍受该框架开发的项目，这时MVP框架就应运而生。</p>
+<h3 id="MVP框架："><a href="#MVP框架：" class="headerlink" title="MVP框架："></a>MVP框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvp.png" alt="MVP image"></p>
+<ul>
+<li>M-Model : 业务逻辑和实体模型</li>
+<li>V-View : 布局文件和Activity</li>
+<li>P-Presenter : 完成View和Model的交互</li>
+</ul>
+<p>MVP框架相对于MVC框架做了较大的改变，将Activity当做View使用，代替MVC框架中的C的是P，对比MVC和MVP的模型图可以发现变化最大的是View层和Model层不在直接通信，所有交互的工作都交由Presenter层来解决。既然两者都通过Presenter来通信，为了复用和可拓展性，MVP框架基于接口设计的理念大家自然就可以理解其用意。</p>
+<p>但MVP框架也有不足之处:</p>
+<ol>
+<li>接口过多，一定程度影响了编码效率。</li>
+<li>业务逻辑抽象到Presenter中，较为复杂的界面Activity代码量依然会很多。</li>
+<li>导致Presenter的代码量过大。</li>
+</ol>
+<h3 id="MVVM框架："><a href="#MVVM框架：" class="headerlink" title="MVVM框架："></a>MVVM框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvvm.png" alt="MVVM image"></p>
+<ul>
+<li>M-Model : 实体模型</li>
+<li>V-View : 布局文件</li>
+<li>VM-ViewModel : DataBinding所在之处，对外暴露出公共属性，View和Model的绑定器</li>
+</ul>
+<p>对比MVP和MVVM模型图可以看出，他们之间区别主要体现在以下两点：</p>
+<ol>
+<li>可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多View重用这段视图逻辑。 在Android中，布局里可以进行一个视图逻辑，并且Model发生变化，View也随着发生变化。</li>
+<li>低耦合。以前Activity、Fragment中需要把数据填充到View，还要进行一些视图逻辑。现在这些都可在布局中完成（具体代码请看后面） 甚至都不需要再Activity、Fragment去findViewById（）。这时候Activity、Fragment只需要做好的逻辑处理就可以了。</li>
+</ol>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>本文摘自<a href="http://blog.csdn.net/chun_long/article/details/52086565" target="_blank" rel="noopener">MVVM简介与运用</a>，链接：<a href="http://blog.csdn.net/chun_long/article/details/52086565" target="_blank" rel="noopener">http://blog.csdn.net/chun_long/article/details/52086565</a></p>
+
       
       
         <div class="page-reward">
@@ -317,13 +351,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/02/26/hexo介绍/">hexo介绍</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/09/什么是MVVM/">什么是MVVM</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 tbCold 的个人博客">tbCold</a></p>
-        <p><span>发布时间:</span>2018年02月26日 - 17时07分</p>
-        <p><span>最后更新:</span>2018年02月26日 - 17时42分</p>
+        <p><span>发布时间:</span>2018年03月09日 - 10时47分</p>
+        <p><span>最后更新:</span>2018年03月09日 - 11时19分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/02/26/hexo介绍/" title="hexo介绍">http://tbcold.github.io/2018/02/26/hexo介绍/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://tbcold.github.io/2018/02/26/hexo介绍/　　作者: tbCold" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/09/什么是MVVM/" title="什么是MVVM">http://tbcold.github.io/2018/03/09/什么是MVVM/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tbcold.github.io/2018/03/09/什么是MVVM/　　作者: tbCold" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -336,18 +370,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/03/09/什么是MVVM/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/09/html5和css3规范/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          什么是MVVM
+          html5和css3规范
         
       </div>
     </a>
   
   
-    <a href="/2018/02/26/hexo博客搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo博客搭建</div>
+    <a href="/2018/02/26/hexo介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo介绍</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -358,7 +392,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录结构"><span class="toc-number">1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布文章"><span class="toc-number">2.</span> <span class="toc-text">发布文章</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC框架："><span class="toc-number">1.1.</span> <span class="toc-text">MVC框架：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVP框架："><span class="toc-number">1.2.</span> <span class="toc-text">MVP框架：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM框架："><span class="toc-number">1.3.</span> <span class="toc-text">MVVM框架：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结尾"><span class="toc-number">2.</span> <span class="toc-text">结尾</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -424,13 +458,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/09/什么是MVVM/" title="上一篇: 什么是MVVM">
+            <a href="/2018/03/09/html5和css3规范/" title="上一篇: html5和css3规范">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/02/26/hexo博客搭建/" title="下一篇: hexo博客搭建">
+            <a href="/2018/02/26/hexo介绍/" title="下一篇: hexo介绍">
                 <i class="fa fa-angle-right"></i>
             </a>
         

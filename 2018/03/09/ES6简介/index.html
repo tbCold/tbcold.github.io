@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tbCold</title>
+  <title>ES6规范 | tbCold</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tbCold">
-<meta property="og:url" content="http://tbcold.github.io/index.html">
+  <meta name="description" content="ES6简介ECMAScript 6 简称 ES6，是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。 Babel：将ES6代码转为ES5代码http://babeljs.io/ 新特性let、constlet 定义的变量不会被变量提升，const 定义的常量不能被修改，let 和">
+<meta name="keywords" content="ES6,web规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6规范">
+<meta property="og:url" content="http://tbcold.github.io/2018/03/09/ES6简介/index.html">
 <meta property="og:site_name" content="tbCold">
+<meta property="og:description" content="ES6简介ECMAScript 6 简称 ES6，是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。 Babel：将ES6代码转为ES5代码http://babeljs.io/ 新特性let、constlet 定义的变量不会被变量提升，const 定义的常量不能被修改，let 和">
+<meta property="og:updated_time" content="2018-03-09T07:46:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tbCold">
+<meta name="twitter:title" content="ES6规范">
+<meta name="twitter:description" content="ES6简介ECMAScript 6 简称 ES6，是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。 Babel：将ES6代码转为ES5代码http://babeljs.io/ 新特性let、constlet 定义的变量不会被变量提升，const 定义的常量不能被修改，let 和">
   
     <link rel="alternative" href="/atom.xml" title="tbCold" type="application/atom+xml">
   
@@ -24,9 +29,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -38,8 +40,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -219,132 +221,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-异步编程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/09/异步编程/" class="article-date">
-      <time datetime="2018-03-09T06:59:22.000Z" itemprop="datePublished">2018-03-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/09/异步编程/">javascript异步编程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="1-异步编程的分类"><a href="#1-异步编程的分类" class="headerlink" title="1.异步编程的分类"></a>1.异步编程的分类</h2><p>解决异步问题方法大致包括：<code>直接回调</code>、<code>pub/sub模式(事件模式)</code>、<code>异步库控制库(例如async、when)</code>、<code>promise</code>、<code>Generator</code>等。</p>
-<h3 id="1-1-回调函数"><a href="#1-1-回调函数" class="headerlink" title="1.1 回调函数"></a>1.1 回调函数</h3><p>回调函数是常用的解决异步的方法，经常接触和使用到，易于理解，并且在库或函数中非常容易实现。这种也是大家接使用异步编程经常使用到的方法。</p>
-<p>但是回调函数的方式存在如下的问题：</p>
-<ol>
-<li>可能形成万恶的嵌套金字塔，代码不易阅读；</li>
-<li>只能对应一个回调函数，在很多场景中成为一个限制。</li>
-</ol>
-<h3 id="1-2-pub-sub模式-事件"><a href="#1-2-pub-sub模式-事件" class="headerlink" title="1.2 pub/sub模式(事件)"></a>1.2 pub/sub模式(事件)</h3><p>该模式也称为事件模式，是回调函数的事件化，在<code>jQuery</code>等类库中非常常见。</p>
-<p>事件发布订阅者模式本身并无同步与异步调用的问题，但是在<code>node</code>中，<code>emit</code>调用多半是伴随事件循环而异步触发的。该模式常用来解耦业务逻辑，事件发布者无须关注注册的回调函数，也不用关注回调函数的个数，数据通过消息的方式可以很灵活的传递。</p>
-<p>该模式的好处是：</p>
-<ol>
-<li>便于理解；</li>
-<li>不再局限于一个回调函数。</li>
-</ol>
-<p>不好的地方时：</p>
-<ol>
-<li>需要借助类库；</li>
-<li>事件与回调函数的顺序很重要</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var img = document.querySelect(#id);</span><br><span class="line">img.addEventListener(&apos;load&apos;, function() &#123;</span><br><span class="line">　　// 图片加载完成</span><br><span class="line">    ......</span><br><span class="line">&#125;);</span><br><span class="line">img.addEventListener(&apos;error&apos;, function() &#123;</span><br><span class="line">　　// 出问题了</span><br><span class="line">　　......</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>上述代码存在两个问题：</p>
-<ol>
-<li><code>img</code>实际已经加载完成，此时才绑定<code>load</code>回调函数，结果回调不会执行，但依然希望执行该对应回调函数。</li>
-<li>无法很好处理存在异常</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var img = document.querySelect(#id);</span><br><span class="line">function load() &#123;</span><br><span class="line">　　...</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">if(img.complete) &#123;</span><br><span class="line">　　load();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">　　img.addEventListener(&apos;load&apos;, load);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">img.addEventListener(&apos;error&apos;, function() &#123;</span><br><span class="line">　　// 出问题了</span><br><span class="line">　　......</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>结论：事件机制最适合处理同一个对象上反复发生的事情，不需要考虑当绑定回调函数之前事件发生的情况。</p>
-<h3 id="1-3-异步控制库"><a href="#1-3-异步控制库" class="headerlink" title="1.3 异步控制库"></a>1.3 异步控制库</h3><p>目前的异步库主要有<code>Q、when.js、win.js、RSVP.js</code>等。</p>
-<p>这些库的特点是代码是线性的，可以从上到下完成书写，符合自然习惯。</p>
-<p>不好的地方也是风格各异，不便于阅读，增加学习成本。</p>
-<h3 id="1-4-Promise"><a href="#1-4-Promise" class="headerlink" title="1.4 Promise"></a>1.4 Promise</h3><p><code>Promise</code>翻译成中文为承诺，个人理解是异步完成之后，就会给外部一个结果（成功或失败），并承诺结果不再发生改变。换句话就是<code>Promise</code>反应了一个操作的最终返回结果值。目前<code>Promise</code>已经引入到ES6规范里面，Chrome、firefox等高级浏览器已经在内部实现了该原生方法，使用起来相当方便。</p>
-<p>下面从如下几个方面来解析<code>Promise</code>的特点：</p>
-<h4 id="1-4-1-状态"><a href="#1-4-1-状态" class="headerlink" title="1.4.1 状态"></a>1.4.1 状态</h4><p>包含三种状态：<code>pending、fulfilled、rejected</code>，三种状态只能发生两种转换(从<code>pending—&gt;fulfilled、pending—&gt;rejected</code>)，并且状态的转换仅能发生一次。<br><img src="http://p2ul1coai.bkt.clouddn.com/promise1.png" alt="promise image"></p>
-<h4 id="1-4-2-then方法"><a href="#1-4-2-then方法" class="headerlink" title="1.4.2 then方法"></a>1.4.2 then方法</h4><p><code>then</code>方法用于指定异步事件完成之后的回调函数。</p>
-<p>这个方法可以说是<code>Promise</code>的灵魂方法，该方法让<code>Promise</code>充满了魔力。有如下几个具体表现：</p>
-<p><strong>a）</strong> <code>then</code>方法返回<code>Promise</code>。这样就实现了多个异步操作的串行操作。<br><img src="http://p2ul1coai.bkt.clouddn.com/promise2.jpg" alt="promise1 image"></p>
-<p>关于上图中黄圈1的对<code>value</code>的处理是<code>Promise</code>里面较为复杂的一个地方，<code>value</code>的处理分为两种情况：<code>Promise</code>对象、非<code>Promise</code>对象。</p>
-<p>当<code>value</code> 不是<code>Promise</code>类型时，直接将<code>value</code>作为第二个<code>Promise</code>的<code>resolve</code>的参数值即可；当为<code>Promise</code>类型时，<code>promise2</code>的状态、参数完全由<code>value</code>决定，可以认为<code>promsie2</code>完全是<code>value</code>的傀儡，<code>promise2</code>仅仅是连接不同异步的桥梁。<br><img src="http://p2ul1coai.bkt.clouddn.com/promise.jpg" alt="promise2 image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Promise.prototype.then = function(onFulfilled, onRejected) &#123;</span><br><span class="line">    return new Promise(function(resolve, reject) &#123;           //此处的Promise标注为promise2</span><br><span class="line">        handle(&#123;</span><br><span class="line">            onFulfilled: onFulfilled,</span><br><span class="line">            onRejected: onRejected,</span><br><span class="line">            resolve: resolve,</span><br><span class="line">            reject: reject</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function handle(deferred) &#123;</span><br><span class="line">    var handleFn;</span><br><span class="line">    if(state === &apos;fulfilled&apos;) &#123;</span><br><span class="line">        handleFn = deferred.onFulfilled;</span><br><span class="line">    &#125; else if(state === &apos;rejected&apos;) &#123;</span><br><span class="line">        handleFn = deferred.onRejected;</span><br><span class="line">    &#125;</span><br><span class="line">    var ret = handleFn(value);</span><br><span class="line">    deferred.resolve(ret);//注意，此时的resolve是promise2的resolve</span><br><span class="line">&#125;</span><br><span class="line">function  resolve(val) &#123;</span><br><span class="line">    if(val &amp;&amp; typeof val.then === &apos;function&apos;) &#123;</span><br><span class="line">        val.then(resolve);// if val为promise对象或类promise对象时，promise2的状态完全由val决定</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if(callback) &#123;// callback为指定的回调函数</span><br><span class="line">        callback(val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>b）</strong>实现了多个不同异步库之间的转换。</p>
-<p>在异步中存在一个叫<code>thenable</code>的对象，就是指具有<code>then</code>方法的对象，只要一个对象对象具有<code>then</code>方法，就可以对其进行转换，例如：</p>
-<pre><code>var deferred = $(&apos;aa.ajax&apos;);// !!deferred.then  === true
-var P = Promise.resolve(deferred);
-p.then(......)
-</code></pre><h4 id="1-4-3-commonJS-Promise-A规范"><a href="#1-4-3-commonJS-Promise-A规范" class="headerlink" title="1.4.3 commonJS Promise/A规范"></a>1.4.3 commonJS Promise/A规范</h4><p>目前关于<code>Promise</code>的规范存在<code>Promise/A</code>和<code>Promise/A+</code>规范，这说明关于<code>Promise</code>的实现是挺复杂的。</p>
-<pre><code>then(fulfilledHandler, rejectedHandler, progressHandler)
-</code></pre><h4 id="1-4-4-注意事项"><a href="#1-4-4-注意事项" class="headerlink" title="1.4.4 注意事项"></a>1.4.4 注意事项</h4><p>一个<code>Promise</code>里面的回调函数是共享<code>value</code>的，在结果处理中<code>value</code>作为参数传递给相应的回调函数，如果<code>value</code>是对象，那就要小心不要轻易修改<code>value</code>的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var p = Promise.resolve(&#123;x: 1&#125;);</span><br><span class="line">p.then(function(val) &#123;</span><br><span class="line">    console.log(&apos;first callback: &apos; + val.x++);</span><br><span class="line">&#125;);</span><br><span class="line">p.then(function(val) &#123;</span><br><span class="line">    console.log(&apos;second callback: &apos; + val.x)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">// first callback: 1</span><br><span class="line">// second callback: 2</span><br></pre></td></tr></table></figure>
-<h3 id="1-5-Generator"><a href="#1-5-Generator" class="headerlink" title="1.5 Generator"></a>1.5 Generator</h3><p>上面所有的方法均是基于回调函数来完成异步操作的，无非是对回调函数进行封装而已。ES6里面提出了<code>Generator</code>，增加了解决异步操作的途径，不再依据回调函数来完成。</p>
-<p><code>Generator</code>最大的特点就是可以实现函数的暂停、重启，这个特性非常有利于解决异步操作。将<code>Generator</code>的暂停与<code>promise</code>的异常处理结合起来，可以比较优雅地解决异步编程问题。具体实现参考：<a href="http://davidwalsh.name/es6-generators" target="_blank" rel="noopener">Kyle Simpson</a></p>
-<h2 id="2-异步编程存在的问题"><a href="#2-异步编程存在的问题" class="headerlink" title="2. 异步编程存在的问题"></a>2. 异步编程存在的问题</h2><h3 id="2-1-异常处理"><a href="#2-1-异常处理" class="headerlink" title="2.1 异常处理"></a>2.1 异常处理</h3><p><strong>a)</strong> 异步事件包括两个环节：发出异步请求、结果处理，这两个环节通过<code>event loop</code>来连接起来。那么<code>try catch</code>来进行异常捕获的时候就需要分来捕获。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    asyncEvent(callback); </span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码是无法捕获<code>callback</code>里面的异常，只能获取发出请求环节的异常。这样就存在问题：假如请求的发出和请求的处理是两个人完成的，那么在异常处理的时候就存在问题？</p>
-<p><strong>b）</strong><code>promise</code>实现异常的传递，这带来一些好处，在实际项目中保证代码不被阻塞。但是如果异步事件比较多的时候，不容易找出到底是那个异步事件产生了异常。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// 场景描述： 在CRM里面展示价格的报警信息，其中包含竞对的信息。但是获取竞对的信息时间比较长，后端为了避免慢查询，就把一条记录拆成两块分别获取。</span><br><span class="line">// 第一步：获取价格报警信息，除了竞对信息</span><br><span class="line">function getPriceAlarmData() &#123;</span><br><span class="line">    return new Promise(function(resolve) &#123;</span><br><span class="line">        Y.io(url, &#123;</span><br><span class="line">            method: &apos;get&apos;,</span><br><span class="line">            data: params,</span><br><span class="line">            on: function() &#123;</span><br><span class="line">                success: function(id, data) &#123;</span><br><span class="line">                    resolve(alarmData);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 得到报警信息后，在去获取竞对信息</span><br><span class="line">getPriceAlarmData().then(function(data) &#123;</span><br><span class="line">    // 数据渲染，除了竞对信息</span><br><span class="line">    render(data);</span><br><span class="line">    return new Promise(function(resolve) &#123;</span><br><span class="line">        Y.io(url, &#123;</span><br><span class="line">            method: &apos;get&apos;,</span><br><span class="line">            data: &#123;alarmList: data&#125;,</span><br><span class="line">            on: function() &#123;</span><br><span class="line">                success: function(id, compData) &#123;</span><br><span class="line">                    resolve(compData);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)//  获取完所有数据后进行竞对信息的渲染</span><br><span class="line">.then(function(data) &#123;</span><br><span class="line">    // 渲染竞对信息</span><br><span class="line">    render(data)</span><br><span class="line">&#125;, function(err) &#123;</span><br><span class="line">    // 异常处理</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>可以把上述代码转换成如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    // 获取除竞对以外的报警信息</span><br><span class="line">    var alarmData = alarmDataExceptCompare();</span><br><span class="line">    render(alarmData);</span><br><span class="line">    // 根据报警信息查询竞对信息</span><br><span class="line">    var compareData = getCompareInfo(alarmData);</span><br><span class="line">    render(compareData);</span><br><span class="line">&#125; catche(err) &#123;</span><br><span class="line">    console.log(err.message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在上述例子中把异常处理放到最后进行处理，这样当其中存在某个环节出现异常，我们无法准确知道到底是哪个事件产生的。</p>
-<h3 id="2-2-jQuery-Deferred-的问题"><a href="#2-2-jQuery-Deferred-的问题" class="headerlink" title="2.2 jQuery.Deferred 的问题"></a>2.2 jQuery.Deferred 的问题</h3><p><code>jQuery</code>中也实现了异步操作，但是在实现上不符合<code>promise/A+</code>规范，主要表现在以下几个方面：</p>
-<p><strong>a.</strong> 参数的个数：标准的<code>Promise</code>只能接受一个参数，而<code>jQuery</code>中则可以传递多个参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function asyncInJQuery() &#123;</span><br><span class="line">    var d = new $.Deferred();</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        d.resolve(1, 2);</span><br><span class="line">    &#125;, 100);</span><br><span class="line">    return d.promise()</span><br><span class="line">&#125;</span><br><span class="line">asyncInJQuery().then(function(val1, val2) &#123;</span><br><span class="line">    console.log(&apos;output: &apos;, val1, val2);</span><br><span class="line">&#125;);</span><br><span class="line">// output: 1 2</span><br></pre></td></tr></table></figure>
-<p><strong>b.</strong> 结果处理中异常的处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">function asyncInPromise() &#123;</span><br><span class="line">      return new Promise(function(resolve) &#123;</span><br><span class="line">        setTimeout(function() &#123;</span><br><span class="line">          var jsonStr = &apos;&#123;&quot;name&quot;: &quot;mt&#125;&apos;;</span><br><span class="line">          resolve(jsonStr);</span><br><span class="line">        &#125;, 100);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  asyncInPromise().then(function(val) &#123;</span><br><span class="line">      var d = JSON.parse(val);</span><br><span class="line">      console.log(d.name);</span><br><span class="line">  &#125;).then(null, function(err) &#123;</span><br><span class="line">    console.log(&apos;show error: &apos; + err.message);</span><br><span class="line">  &#125;);</span><br><span class="line">// show error: Unexpected end of input</span><br><span class="line"> </span><br><span class="line">function asyncInJQuery() &#123;</span><br><span class="line">    var d = new $.Deferred();</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        var jsonStr = &apos;&#123;&quot;name&quot;: &quot;mt&#125;&apos;;</span><br><span class="line">        d.resolve(jsonStr);</span><br><span class="line">    &#125;, 100);</span><br><span class="line">    return d.promise()</span><br><span class="line">&#125;</span><br><span class="line">asyncInJQuery().then(function(val) &#123;</span><br><span class="line">    var d = JSON.parse(val);</span><br><span class="line">    console.log(d.name);</span><br><span class="line">&#125;).then(function(v) &#123;</span><br><span class="line">    console.log(&apos;success: &apos;, v.name);</span><br><span class="line">&#125;, function(err)&#123;</span><br><span class="line">    console.log(&apos;show error: &apos; + err.message);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">//Uncaught SyntaxError: Unexpected end of input</span><br></pre></td></tr></table></figure>
-<p>从中可以看出，<code>Promise</code>对回调函数进行了结果处理，可以捕获回调函数执行过程中的异常，而<code>jQuery.Deferred</code>却不可以。</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>本文摘自<a href="http://web.jobbole.com/81747/" target="_blank" rel="noopener">谈谈 JavaScript 异步编程</a>，链接：<a href="http://web.jobbole.com/81747/" target="_blank" rel="noopener">http://web.jobbole.com/81747/</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步编程/">异步编程</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ES6简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ES6简介" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/03/09/ES6简介/" class="article-date">
@@ -360,12 +237,23 @@ p.then(......)
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/09/ES6简介/">ES6规范</a>
+    <h1 class="article-title" itemprop="name">
+      ES6规范
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web规范/">web规范</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -439,401 +327,201 @@ p.then(......)
 
       
       
-    </div>
-    
-    <div class="article-info article-info-index">
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web规范/">web规范</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-html5和css3规范" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/09/html5和css3规范/" class="article-date">
-      <time datetime="2018-03-09T03:20:11.000Z" itemprop="datePublished">2018-03-09</time>
-</a>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/03/09/ES6简介/">ES6规范</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 tbCold 的个人博客">tbCold</a></p>
+        <p><span>发布时间:</span>2018年03月09日 - 13时11分</p>
+        <p><span>最后更新:</span>2018年03月09日 - 15时46分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/09/ES6简介/" title="ES6规范">http://tbcold.github.io/2018/03/09/ES6简介/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tbcold.github.io/2018/03/09/ES6简介/　　作者: tbCold" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
+
+
+
+<nav id="article-nav">
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <a href="/2018/03/09/异步编程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/09/html5和css3规范/">html5和css3规范</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="html5规范"><a href="#html5规范" class="headerlink" title="html5规范"></a>html5规范</h3><ol>
-<li>class 用于标识高度可复用组件，因此应该排在首位。id 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。</li>
-<li>css文件外链至<head></head>之间，js文件置于之前。</li>
-<li>语义化HTML，如标题根据重要性用h*(同一页面只能有一个h1)，段落标记用p，列表用ul，内联元素中避免嵌套块级元素。</li>
-<li>书写链接地址时，建议在URL地址后面加上”/“，例如：href=”<a href="http://www.baidu.com/&quot;。" target="_blank" rel="noopener">www.baidu.com/&quot;。</a></li>
-<li>在页面中不能使用style属性，即style=”…”；所有样式必须写在css文件中。</li>
-<li>必须为含有描述性表单元素(input，textarea)添加label，如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;姓名:&lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot;/&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>须写成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;label for=&quot;name&quot;&gt;姓名：&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;/&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>能以背景形式呈现的图片，尽量写入css样式中。</li>
-<li>给重要的元素和截断的元素加上title。</li>
-<li>建议给区块代码及重要功能（比如循环）加上注释，方便后台添加功能。</li>
-<li><p>不是标签一部分的特殊符号都用编码表示，出现在内容中的特殊符号都需要用编码形式 表现出来，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;：&amp;lt，&gt;：&amp;gt，&amp;）：&amp;amp，&quot;：&amp;quot;，尽量使用&amp;nbsp;代替空格。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>图片标签必须要有alt属性，如只起修饰作用而没有任何意义的图片可设置alt属性值 为空。如：&lt;imgsrc=”a.gif”alt=””&gt;。</p>
-</li>
-</ol>
-<h3 id="css3规范"><a href="#css3规范" class="headerlink" title="css3规范"></a>css3规范</h3><ol>
-<li>文档类型声明及编码: 统一为html5声明类型<code>&lt;!DOCTYPE html&gt;</code>; 编码统一为<code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code>, 书写时实现层次分明的缩进</li>
-<li>非特殊情况下样式文件必须外链至<code>&lt;head&gt;...&lt;/head&gt;</code>之间;非特殊情况下JavaScript文件必须外链至页面底部</li>
-<li>引入JS库文件, 文件名须包含库名称及版本号及是否为压缩版, 比如<code>jquery-1.4.1.min.js</code>; 引入插件, 文件名格式为库名称+插件名称, 比 如<code>jQuery.cookie.js</code></li>
-</ol>
-<h3 id="图片规范"><a href="#图片规范" class="headerlink" title="图片规范"></a>图片规范</h3><ol>
-<li>图片格式仅限于<code>gif、png、jpg</code>，图标、按钮等采用透明背景为主；除需要透明的图片使用<code>png、gif</code>外其他图片都采用<code>jpg</code>格式。为尽量控制文件大小，大尺寸图片应避免使用<code>png</code>，尽量使用<code>jpg</code>，运用<code>css sprite</code>技术集中小的背景图或图标, 减小页面http请求</li>
-<li>命名全部使小写英文字母、数字和破折号（-）的组合，其中不得包含汉字、空格和特殊字符。尽量使用易懂的词汇，便于其他人理解。如：<code>ad-left.gif、btn-submit.jpg</code></li>
-<li>在保证视觉效果的情况下选择最小的图片格式与图片质量，以减少加载时间。尽量减少使用半透明的png图片</li>
-</ol>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web规范/">web规范</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-什么是MVVM" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/09/什么是MVVM/" class="article-date">
-      <time datetime="2018-03-09T02:47:42.000Z" itemprop="datePublished">2018-03-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          javascript异步编程
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/09/什么是MVVM/">什么是MVVM</a>
-    </h1>
   
+    <a href="/2018/03/09/html5和css3规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html5和css3规范</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在介绍MVVM框架之前，先给大家简单介绍一下MVC、MVP框架（由于本博文主要讲解MVVM，所以MVC和MVP将简化介绍，如果需要我将在以后的博文中补充进来）。</p>
-<h3 id="MVC框架："><a href="#MVC框架：" class="headerlink" title="MVC框架："></a>MVC框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvc.png" alt="MVC image"></p>
-<ul>
-<li>M-Model : 业务逻辑和实体模型</li>
-<li>V-View : 布局文件</li>
-<li>C-Controller : 控制器</li>
-</ul>
-<p>相信大家都熟悉这个框架，这个也是初学者最常用的框架，该框架虽然也是把代码逻辑和UI层分离，但是View层能做的事情还是很少的，很多对于页面的呈现还是交由C实现，这样会导致项目中C的代码臃肿，如果项目小，代码臃肿点还是能接受的，但是随着项目的不断迭代，代码量的增加，你就会没办法忍受该框架开发的项目，这时MVP框架就应运而生。</p>
-<h3 id="MVP框架："><a href="#MVP框架：" class="headerlink" title="MVP框架："></a>MVP框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvp.png" alt="MVP image"></p>
-<ul>
-<li>M-Model : 业务逻辑和实体模型</li>
-<li>V-View : 布局文件和Activity</li>
-<li>P-Presenter : 完成View和Model的交互</li>
-</ul>
-<p>MVP框架相对于MVC框架做了较大的改变，将Activity当做View使用，代替MVC框架中的C的是P，对比MVC和MVP的模型图可以发现变化最大的是View层和Model层不在直接通信，所有交互的工作都交由Presenter层来解决。既然两者都通过Presenter来通信，为了复用和可拓展性，MVP框架基于接口设计的理念大家自然就可以理解其用意。</p>
-<p>但MVP框架也有不足之处:</p>
-<ol>
-<li>接口过多，一定程度影响了编码效率。</li>
-<li>业务逻辑抽象到Presenter中，较为复杂的界面Activity代码量依然会很多。</li>
-<li>导致Presenter的代码量过大。</li>
-</ol>
-<h3 id="MVVM框架："><a href="#MVVM框架：" class="headerlink" title="MVVM框架："></a>MVVM框架：</h3><p><img src="http://p2ul1coai.bkt.clouddn.com/mvvm.png" alt="MVVM image"></p>
-<ul>
-<li>M-Model : 实体模型</li>
-<li>V-View : 布局文件</li>
-<li>VM-ViewModel : DataBinding所在之处，对外暴露出公共属性，View和Model的绑定器</li>
-</ul>
-<p>对比MVP和MVVM模型图可以看出，他们之间区别主要体现在以下两点：</p>
-<ol>
-<li>可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多View重用这段视图逻辑。 在Android中，布局里可以进行一个视图逻辑，并且Model发生变化，View也随着发生变化。</li>
-<li>低耦合。以前Activity、Fragment中需要把数据填充到View，还要进行一些视图逻辑。现在这些都可在布局中完成（具体代码请看后面） 甚至都不需要再Activity、Fragment去findViewById（）。这时候Activity、Fragment只需要做好的逻辑处理就可以了。</li>
-</ol>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>本文摘自<a href="http://blog.csdn.net/chun_long/article/details/52086565" target="_blank" rel="noopener">MVVM简介与运用</a>，链接：<a href="http://blog.csdn.net/chun_long/article/details/52086565" target="_blank" rel="noopener">http://blog.csdn.net/chun_long/article/details/52086565</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6简介"><span class="toc-number">1.</span> <span class="toc-text">ES6简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新特性"><span class="toc-number">2.</span> <span class="toc-text">新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#let、const"><span class="toc-number">2.1.</span> <span class="toc-text">let、const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import、export"><span class="toc-number">2.2.</span> <span class="toc-text">import、export</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class、extends、super"><span class="toc-number">2.3.</span> <span class="toc-text">class、extends、super</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arrow-functions-（箭头函数）"><span class="toc-number">2.4.</span> <span class="toc-text">arrow functions （箭头函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#template-string-（模板字符串）"><span class="toc-number">2.5.</span> <span class="toc-text">template string （模板字符串）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#destructuring-（解构）"><span class="toc-number">2.6.</span> <span class="toc-text">destructuring （解构）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#default-函数默认参数"><span class="toc-number">2.7.</span> <span class="toc-text">default 函数默认参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rest-arguments-（rest参数）"><span class="toc-number">2.8.</span> <span class="toc-text">rest arguments （rest参数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spread-Operator-（展开运算符）"><span class="toc-number">2.9.</span> <span class="toc-text">Spread Operator （展开运算符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">2.10.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-number">2.11.</span> <span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generators"><span class="toc-number">2.12.</span> <span class="toc-text">Generators</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
 
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
-  
-    <article id="post-hexo介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/26/hexo介绍/" class="article-date">
-      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+
     
-      <input type="hidden" class="isFancy" />
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tbCold',
+      repo: 'tbcold.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
     
-    
-      <header class="article-header">
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/hexo介绍/">hexo介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://hexo.io" target="_blank" rel="noopener">hexo官方网站</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo中文文档</a></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. public: 部署目录</span><br><span class="line">2. scaffolds: 模版目录</span><br><span class="line">3. source: 资源文件目录，md或html等用户编写的放到此目录下，部署时会被解析到public目录下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。</span><br><span class="line">4. themes: 存放主题的目录</span><br><span class="line">5. _config.yml: 项目配置文件</span><br></pre></td></tr></table></figure>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/26/hexo博客搭建/" class="article-date">
-      <time datetime="2018-02-26T09:07:45.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a href="/2018/03/09/异步编程/" title="上一篇: javascript异步编程">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/hexo博客搭建/">hexo博客搭建</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. npm install -g hexo</span><br><span class="line">2. hexo init</span><br><span class="line">3. npm install</span><br></pre></td></tr></table></figure>
-<h3 id="安装spfk主题"><a href="#安装spfk主题" class="headerlink" title="安装spfk主题"></a>安装spfk主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br><span class="line">2. 修改_config.yml文件，theme: spfk</span><br><span class="line">3. cd themes/spfk</span><br><span class="line">4. git pull</span><br></pre></td></tr></table></figure>
-<h3 id="增加部署配置"><a href="#增加部署配置" class="headerlink" title="增加部署配置"></a>增加部署配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 添加git插件：</span><br><span class="line">npm install hexo-deployer-git</span><br><span class="line">2. 修改_config.yml文件，在文件最下修改：</span><br><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repository: https://github.com/tbCold/tbcold/.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. hexo generate</span><br><span class="line">2. hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><p><a href="https://tbcold.github.io">https://tbcold.github.io</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/26/hello-world/" class="article-date">
-      <time datetime="2018-02-26T07:18:37.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-      
+            <a href="/2018/03/09/html5和css3规范/" title="下一篇: html5和css3规范">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/09/异步编程/">javascript异步编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/09/ES6简介/">ES6规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/09/html5和css3规范/">html5和css3规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/09/什么是MVVM/">什么是MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/26/hexo介绍/">hexo介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/26/hexo博客搭建/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/26/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
 
-
-
-
-
-
-
-
-  
-  
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
